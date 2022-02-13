@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 import'./styles.scss'
 
@@ -9,7 +10,7 @@ const Header = () => {
                 <h1 className="header__block-item">Maddy Murk</h1>
                 <span className="header__block-item">Главная</span>
                 <span  className="header__block-item">Канал на Youtube</span>
-                <span className="header__block-item">О сайте</span>
+                <Link to='/about' className="header__block-item">О сайте</Link>
             </nav>
             <nav className="header__block">
                 <span className="header__block-item">Вход/Регистрация</span>

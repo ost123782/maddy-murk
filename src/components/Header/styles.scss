@@ -11,19 +11,15 @@
         &-item{
             margin: 0 15px;
         }
+        a{
+            text-decoration: none;
+        }
 
         h1{
             font-size: 17px;
             margin: 0 15px;
         }
 
-        span{
-            transition: all 0.5s;
-        }
 
-        span:hover {
-            color:rgb(32, 32, 32);
-            text-decoration: underline 2px;
-        }
     }
 }

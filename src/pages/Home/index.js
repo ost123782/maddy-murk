@@ -1,8 +1,19 @@
 import React from "react"
+import PostTitle from "../../components/PostTitle"
+import './styles.scss'
 
 const Home = () => {
     return (
-        <h1>Home page</h1>
+        <>
+        <div className="titles">
+        <PostTitle/>
+        <PostTitle/>
+        <PostTitle/>
+        <PostTitle/>
+        <PostTitle/>
+        <PostTitle/>
+        </div>
+        </>
     )
 }
 

@@ -1,13 +1,22 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import RegContext from './contexts/context';
 
+const Main = () => {
+  const [register, setReg] = useState(false)
+  return (
+    <RegContext.Provider value = {{register, setReg}}>
+      <App/>
+    </RegContext.Provider>
+  )
+}
 
 ReactDOM.render(
-  <App/>,
+  <Main/>,
   document.getElementById('root')
 );
 

@@ -3,20 +3,22 @@ import { Link } from "react-router-dom"
 import'./styles.scss'
 
 
-const Header = ({setReg, reg}) => {
+const Header = ({setReg, isLog, setLogin}) => {
 
-    
+    const logOut = () => {
+        localStorage.removeItem('ISLOGGED')
+        setLogin(false)
+    }
     
     return (
         <header className="header">
             <nav className="header__block">
                 <h1 className="header__block-item">Maddy Murk</h1>
-                <span className="header__block-item">Главная</span>
-                <span className="header__block-item">Канал на Youtube</span>
+                <Link to='/' className="header__block-item">Главная</Link>
                 <Link to='/about' className="header__block-item">О сайте</Link>
             </nav>
             <nav className="header__block">
-                <button onClick={()  => {setReg(true)}}  className="header__block-btn">Вход/Регистрация</button>
+                {!isLog ? <button onClick={()  => {setReg(true)}}  className="header__block-btn">Вход/Регистрация</button> : <button className="header__block-btn" onClick={() => {logOut()}}>Выйти</button>}
             </nav>
         </header>
     )

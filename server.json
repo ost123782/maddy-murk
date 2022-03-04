@@ -1,0 +1,81 @@
+{
+  "users": [
+    {
+      "name": "Ostap",
+      "email": "dmitrivostap8@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "name": {
+        "value": "2321312342"
+      },
+      "email": {
+        "value": "dm@ggf.com"
+      },
+      "password": {
+        "value": "22244343434223432"
+      },
+      "id": 1
+    },
+    {
+      "name": {
+        "value": "Ostap"
+      },
+      "email": {
+        "value": "Ostap121@gmail.com"
+      },
+      "password": {
+        "value": "12334443334848483839"
+      },
+      "id": 2
+    },
+    {
+      "name": {
+        "value": "Zoryana"
+      },
+      "email": {
+        "value": "zoryana@gmail.com"
+      },
+      "password": {
+        "value": "1234567890"
+      },
+      "id": 3
+    },
+    {
+      "name": {
+        "value": "Ostap"
+      },
+      "email": {
+        "value": "dmitost@mail.com"
+      },
+      "password": {
+        "value": "UKR_0144"
+      },
+      "id": 4
+    },
+    {
+      "name": {
+        "value": "Ostap"
+      },
+      "email": {
+        "value": "ostap@mail.com"
+      },
+      "password": {
+        "value": "UKR_0144"
+      },
+      "id": 5
+    },
+    {
+      "name": {
+        "value": "Ostap"
+      },
+      "email": {
+        "value": "test@mail.com"
+      },
+      "password": {
+        "value": "12345644"
+      },
+      "id": 6
+    }
+  ]
+}

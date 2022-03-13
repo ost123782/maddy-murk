@@ -1,11 +1,14 @@
 import React from "react"
 import useInput from "../../hooks/HookInput"
 import "./styles.scss"
+import {useDispatch} from "react-redux";
 
 
 
 
 const Register = ({setReg}) => {
+
+    const dispatch = useDispatch()
 
 
     const nameVal = useInput(''),
@@ -21,7 +24,7 @@ const Register = ({setReg}) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        }).then(() => {setReg(false); localStorage.setItem("ISLOGGED", true)})
+        }).then(() => {setReg(false); localStorage.setItem("ISLOGGED", JSON.stringify(data)); dispatch({type: 'SET_LOG', payload: data})})
         .catch(() => {console.log('fail')})
         
     }

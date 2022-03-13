@@ -1,17 +1,17 @@
 
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import RegContext from './contexts/context';
+import {Provider} from "react-redux";
+import store from "./store";
 
 const Main = () => {
-  const [register, setReg] = useState(false)
   return (
-    <RegContext.Provider value = {{register, setReg}}>
+    <Provider store={store}>
       <App/>
-    </RegContext.Provider>
+    </Provider>
   )
 }
 

@@ -1,0 +1,9 @@
+.form-create{
+  display: flex;
+  flex-direction: column;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+  }
+}

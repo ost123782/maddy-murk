@@ -1,7 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import useInput from "../../hooks/HookInput"
+import axios from 'axios'
 import "./styles.scss"
 import {useDispatch} from "react-redux";
+import Reg from "./parts/reg";
+import Log from "./parts/log";
 
 
 
@@ -13,36 +16,49 @@ const Register = ({setReg}) => {
 
     const nameVal = useInput(''),
     passVal = useInput(''),
-    emailVal = useInput('')
+    emailVal = useInput(''),
+    [regOrLog, setRegOrLog] = useState('reg')
 
     const regUsr = async (e) => {
-        const data = {name: nameVal, email: emailVal, password: passVal}
+        const data = {name: nameVal.value, email: emailVal.value, password: passVal.value}
+
         e.preventDefault()
-        await fetch('http://localhost:5000/users', {
-            method: "POST", 
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(() => {setReg(false); localStorage.setItem("ISLOGGED", JSON.stringify(data)); dispatch({type: 'SET_LOG', payload: data})})
-        .catch(() => {console.log('fail')})
+        try {
+            const response = await axios.post('http://localhost:5000/api/reguser', data)
+            alert(response.data.text)
+            setReg(false);
+            localStorage.setItem("ISLOGGED", JSON.stringify(data))
+            dispatch({type: 'SET_LOG', payload: data})
+        } catch (e) {
+            alert(e.response.data.text)
+        }
+        //     .then(() => {})
+        // .catch((e) => {console.log(e.response.data.text)})
         
+    }
+
+    const logUsr = async (e) => {
+        const data = {email: emailVal.value, password: passVal.value}
+
+        e.preventDefault()
+
+        try{
+            const response = await axios.post('http://localhost:5000/api/loguser', data)
+            data.name = response.data.name
+            setReg(false)
+            localStorage.setItem("ISLOGGED", JSON.stringify(data))
+            dispatch({type: 'SET_LOG', payload: data})
+        } catch (e) {
+            alert(e.response.data.text)
+        }
     }
 
     return (
         <div className="reg__popup" onClick={() => {setReg(false)}}>
             <div className="reg__popup__menu" onClick={(e)=>{e.stopPropagation()}}>
-                <div className="reg__popup__menu-item">
-                    <form onSubmit={(e) => {regUsr(e)}}>
-                        <label>Email</label>
-                        <input value={emailVal.value} onChange={emailVal.onChange} type="email" className="reg__popup__menu__inp" />
-                        <label>Password</label>
-                        <input value={passVal.value} onChange={passVal.onChange} type="password" className="reg__popup__menu__inp" />
-                        <label>Name</label>
-                        <input value={nameVal.value} onChange={nameVal.onChange} type="text" className="reg__popup__menu__inp" />
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
+                { regOrLog === 'reg' ? <Reg regUsr={regUsr} passVal={passVal} nameVal={nameVal} emailVal={emailVal}/> :
+                <Log logUsr={logUsr} emailVal={emailVal} passVal={passVal}/> }
+                {regOrLog === 'reg' ? <p onClick={() => setRegOrLog('log')}>Login</p> : <p onClick={() => setRegOrLog('reg')}>Register</p>}
             </div>
         </div>
     )

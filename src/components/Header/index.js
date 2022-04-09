@@ -25,7 +25,7 @@ const Header = ({setReg}) => {
                 {isLog ? <Link to={'/create'}>Создать публикацию</Link> : null}
             </nav>
             <nav className="header__block">
-                {!isLog ? <button onClick={() => setReg(true)} className="header__block-btn">Вход/Регистрация </button> : <><p>Hello, {isLog.name.value}</p> <button onClick={() => logOut()} className="header__block-btn">Выйти</button></> }
+                {!isLog ? <button onClick={() => setReg(true)} className="header__block-btn">Вход/Регистрация </button> : <><p>Hello, {isLog.name}</p> <button onClick={() => logOut()} className="header__block-btn">Выйти</button></> }
             </nav>
         </header>
     )

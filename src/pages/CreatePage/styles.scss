@@ -4,6 +4,37 @@
   &__form {
     display: flex;
     flex-direction: column;
-    width: 600px;
+    &-images {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      max-width: max-content;
+      &__item {
+        border: 3px solid #845592;
+        border-radius: 7px;
+        padding: 10px;
+        margin: 20px;
+        display: flex;
+        max-width: 200px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+  }
+  input[type= 'file'] {
+    display: none;
+  }
+  .input-label{
+    border: 2px solid #8504E1;
+    border-radius: 12px;
+    padding: 7px;
+    width: 50px;
+    text-align: center;
+  }
+  .text-inp {
+    resize: vertical;
+  }
+  .favourite {
+    border-color: yellow;
   }
 }

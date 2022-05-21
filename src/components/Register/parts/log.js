@@ -22,7 +22,7 @@ const Log = ({setReg ,emailVal, passVal}) => {
             alert(e.response.data.text)
         } 
         } else {
-            alert('No')
+            alert('Неправильно написаний пароль, або імейл!')
         }
 
     }

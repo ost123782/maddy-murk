@@ -22,7 +22,7 @@ const Reg = ({setReg,emailVal, passVal, nameVal}) => {
                 alert(e.response.data.text)
             }
         } else {
-            alert('No')
+            alert('Неправильно написаний імейл, або пароль, або ім`я!')
         }
 
     }

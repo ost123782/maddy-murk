@@ -1,0 +1,5 @@
+export const SET_LOG = 'SET_LOG'
+export const SET_REG = 'SET_REG'
+export const SET_IMG = 'SET_IMG'
+export const DEL_OR_FAV_IMG = 'DEL_OR_FAV_IMG'
+export const GET_ARTICLES = 'GET_ARTICLES'

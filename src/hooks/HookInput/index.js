@@ -4,12 +4,15 @@ const useIpnut = (initialValue) => {
     const [value, setValue] = useState(initialValue)
 
     const handleValue = (e) => {
-        
         setValue(e.target.value)
     }
 
+    const removeVal = () => {
+        setValue('')
+    }
+
     return {
-        value, onChange: handleValue
+        value, onChange: handleValue, removeVal
     }
 }
 
